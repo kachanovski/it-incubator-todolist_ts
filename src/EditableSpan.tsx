@@ -3,7 +3,6 @@ import React, {ChangeEvent, useState} from "react";
 type EditableSpanType = {
     title: string
     changeTitle: (newTitle: string) => void
-
 }
 
 export function EditableSpan(props: EditableSpanType) {
