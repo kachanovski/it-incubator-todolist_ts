@@ -1,4 +1,7 @@
 import React, {KeyboardEvent, useState} from "react";
+import {TextField} from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import AddBoxIcon from '@material-ui/icons/AddBox';
 
 type AddItemFormType = {
     addItem: (newTaskTitleValue: string) => void
@@ -27,11 +30,18 @@ export function AddItemForm(props: AddItemFormType) {
 
     return (
         <div>
-            <input onKeyPress={onPressKey} value={newTaskTitleValue} onChange={(e) => {
-                setNewTaskTitleValue(e.currentTarget.value)
-            }}/>
-            <button onClick={addTask}>+</button>
-            {error && <div className="error-message">{error}</div>}
+            <TextField onKeyPress={onPressKey}
+                       variant="outlined"
+                       helperText={error}
+                       error={!!error}
+                       value={newTaskTitleValue}
+                       onChange={(e) => {
+                           setNewTaskTitleValue(e.currentTarget.value)
+                       }}
+                       label="Введите значение"/>
+            <IconButton color={"primary"} onClick={addTask}>
+                <AddBoxIcon fontSize={"large"} />
+            </IconButton>
         </div>
     )
 
