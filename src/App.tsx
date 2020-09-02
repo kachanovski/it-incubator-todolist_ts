@@ -136,13 +136,6 @@ function App() {
                         let allTodoListTasks = tasks[tl.id];
                         let changeStatusValue = allTodoListTasks;
 
-                        if (tl.filter === "active") {
-                            changeStatusValue = allTodoListTasks.filter(t => t.isDone === false)
-                        }
-                        if (tl.filter === "completed") {
-                            changeStatusValue = allTodoListTasks.filter(t => t.isDone === true)
-                        }
-
                         return <Grid item>
                             <Paper style={{padding: "10px"}}>
                                 <TodoList key={tl.id}
